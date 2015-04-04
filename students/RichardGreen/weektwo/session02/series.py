@@ -8,21 +8,12 @@ def fibonacci(n=5):
     n an integer
     Returns: an integer'''
 # Returns the fibonacci series based off a user defined number
-<<<<<<< Updated upstream
-if n == 0:
-    return 0
-elif n == 1:
-    return 1
-else:
-    return fibonacci(n - 1) + fibonacci(n - 2)
-=======
     if n == 0:
         return 0
     elif n == 1:
         return 1
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
->>>>>>> Stashed changes
 
 # lucas numbers function
 
@@ -36,7 +27,6 @@ def lucas(n):
     '''Numeric arguments: n an integer
     Returns: an integer
     '''
-
 # Returns the lucas numbers based off a user defined number
 
     if n < 0:

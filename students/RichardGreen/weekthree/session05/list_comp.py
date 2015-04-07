@@ -18,11 +18,11 @@ if (__name__ == "__main__"):
     x = range(50)
 
     # Lets print those values that are even
-print count_evens(x)
+    print count_evens(x)
 
 # Lets run the unit tests that were provided in the exercise
-print count_evens([2, 1, 2, 3, 4])
+    print count_evens([2, 1, 2, 3, 4])
 
-print count_evens([2, 2, 0])
+    print count_evens([2, 2, 0])
 
-print count_evens([1, 3, 5])
+    print count_evens([1, 3, 5])

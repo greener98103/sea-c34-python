@@ -10,7 +10,7 @@ def count_evens(nums):
     results = [x for x in nums if x % 2 == 0]
 
     # Print the length/number of Even numbers in our string"
-    print len(results)
+    return len(results)
 
 if (__name__ == "__main__"):
 

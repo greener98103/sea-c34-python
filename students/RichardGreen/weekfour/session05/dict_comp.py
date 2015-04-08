@@ -2,28 +2,19 @@
 '''Richard Green'''
 
 
-my_dict = {"name": 'Rich',
-           "city": 'Seattle',
-           "desert": 'Chocolate',
-           "drink": 'espresso',
-           "number": 'Four',
-           "time": 'Three hours'}
+my_dict = {u"name": u"Rich",
+           u"city": u"Seattle",
+           u"desert": u"Chocolate",
+           u"drink": u"espresso",
+           u"time": u"three hours"}
+
+# Print the dict by passing it to a string format method
+print my_dict
 
 # Print the dict by passing it to a string format method
 
-story = ('{name} is from {city} and loves {desert}, especially after {number}'
-         'shots of {drink} and {time} of sleep')
-
-story_formated = story.format(name=my_dict["name"],
-                              city=my_dict["city"],
-                              desert=my_dict["desert"],
-                              number=my_dict["number"],
-                              drink=my_dict["drink"],
-                              time=my_dict["time"]
-                              )
-# Print the dict by passing it to a string format method
-
-print story_formated
+print(u"{name} is from {city} and likes {desert}".format(**my_dict))
+print(u"He likes {drink} after {time} of sleep".format(**my_dict))
 
 
 # Using a list comprehension, build a dictionary of numbers from
@@ -80,6 +71,6 @@ seq_sets = [s2, s3, s4]
 
 seq_sets = [{i for i in range(0, 21) if not i % j} for j in range(2, 5)]
 
-print s2
-print s3
-print s4
+print seq_sets[0]
+print seq_sets[1]
+print seq_sets[2]

@@ -26,8 +26,10 @@ def replace_comma_for_tabs(x):
 
 
 def ascii_my_string(x):
-    '''definition of function: Print out the string in ASC II values.
-arguments: a string x'''
+    '''
+    definition of function: Print out the string in ASC II values.
+    arguments: a string x
+    '''
     for i in x:
         print(ord(i), ' ')
 

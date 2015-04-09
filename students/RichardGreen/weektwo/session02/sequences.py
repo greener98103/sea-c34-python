@@ -27,8 +27,10 @@ def concatenate_strings(p, x):
 
 
 def is_it_in_mystring(x, z):
-    '''def of function: determine if characters are in a string arguments: a
-     substring x and the master string y'''
+    '''
+    def of function: determine if characters are in a string arguments: a
+     substring x and the master string y
+    '''
     if z in x:
         print " Yes your character(s) ' %s '' is in the string" % (z)
     else:

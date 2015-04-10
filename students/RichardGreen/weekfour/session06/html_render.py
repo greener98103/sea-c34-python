@@ -5,17 +5,21 @@
 
 
 class Element(object):
-    '''Create an Element class for rendering an html element
+    '''
+    Create an Element class for rendering an html element
     (xml element). It should have class attributes for the tag name
     (html first) and the indentation (spaces to indent for pretty
-    printing)'''
+    printing)
+    '''
     tag = u"html"
     indent = "    "
 
     def __init__(self, content=None, **kwargs):
-        '''Ill use kwargs to input my arguments/attributes. Use a list for my
+        '''
+        Ill use kwargs to input my arguments/attributes. Use a list for my
         contents and a dictionary for my attributes. If there is no content
-        list then create one.'''
+        list then create one.
+        '''
         if content is None:
             self.contents = []
         else:
@@ -45,8 +49,10 @@ class Html(Element):
     tag = u'html'
 
     def render(self, file_out, indent=""):
-        '''Update the Html element class to render the <!DOCTYPE html> tag
-         at the head of the page, before the html element.'''
+        '''
+        Update the Html element class to render the <!DOCTYPE html> tag
+         at the head of the page, before the html element.
+        '''
         file_out.write('<!DOCTYPE html>\n')
 
         Element.render(self, file_out, indent)
@@ -56,10 +62,12 @@ class Html(Element):
 
 
 class Body(Element):
-    '''Create some subclasses of Element, for a <body> tag
+    '''
+    Create some subclasses of Element, for a <body> tag
     and <p> tag. All you should have to do is override the tag class
     attribute (you may need to add a tag class attribute to the Element
-    class first...).'''
+    class first...).
+    '''
 
     tag = u'body'
 
@@ -82,8 +90,10 @@ class OneLineTag(Element):
     tag = u''
 
     def render(self, file_out, indent=""):
-        '''Extend the Element class to accept a set of attributes
-        as keywords to the constructor, ie. (run_html_render.py)'''
+        '''
+        Extend the Element class to accept a set of attributes
+        as keywords to the constructor, ie. (run_html_render.py)
+        '''
         file_out.write('{}<{}{}>{}</{}>\n'.format(indent,
                                                   self.tag,
                                                   self.attributes,
@@ -102,14 +112,18 @@ class A(OneLineTag):
     tag = u'a'
 
     def __init__(self, html_address, text):
-        '''You should be able to subclass from Element, and
+        '''
+        You should be able to subclass from Element, and
         only override the __init__ Calling the Element __init__
-        from the A __init__ OneLineTag.'''
+        from the A __init__ OneLineTag.
+        '''
 
 
 class Ul(Element):
-    '''Create Ul class for an unordered list (really
-    simple subclass of Element)'''
+    '''
+    Create Ul class for an unordered list (really
+    simple subclass of Element)
+    '''
     tag = u'u1'
 
 
@@ -128,10 +142,12 @@ class H(OneLineTag):
 
 class SelfClosingTag(Element):
     def render(self, file_out, indent=""):
-        '''Create a SelfClosingTag subclass of Element, to
+        '''
+        Create a SelfClosingTag subclass of Element, to
         render tags. You will need to override the render method
         to render just the one tag and attributes, if any. Create
-        a couple subclasses of SelfClosingTag for and <hr /> and <br />'''
+        a couple subclasses of SelfClosingTag for and <hr /> and <br />
+        '''
 
         file_out.write('{}<{}{} />\n'.format(indent,
                                              self.tag,

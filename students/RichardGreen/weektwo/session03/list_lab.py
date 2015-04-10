@@ -4,7 +4,7 @@
 
 '''Session 1'''
 # Create a list that contains .Apples., .Pears., .Oranges. and .Peaches..
-fruit = ['Apples', 'Pears', 'Oranges', 'Peaches'];
+fruit = ['Apples', 'Pears', 'Oranges', 'Peaches']
 # Display the list.
 print " The fruit we have is:", fruit
 # Ask the user for another fruit and add it to the end of the list.
@@ -19,7 +19,7 @@ print " Our updated fruit list is:", fruit
 location = raw_input('Enter a number: ')
 print('You entered', location)
 if int(location) <= len(fruit):
-    print "The fruit at your number is:", fruit[int(location)]
+    print "The fruit at your number is:", fruit[int(location) - 1]
 else:
     print " Im sorry the location you entered is incorrect."
 

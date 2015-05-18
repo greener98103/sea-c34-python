@@ -12,24 +12,29 @@ class Element(object):
     tag = u"html"
     indent = u"    "
 
-    def __init__(self, content=None):
-        self.content = self.indent + str(self.content) if content else ""
+    def __init__(self, content=None, **kwargs):
+        if content is None:
+            self.contents = []
+        else:
+            self.contents = [content]
+        self.attributes = ''.join(' {} = "{}"'.format(k, v)
+            for k, v in kwargs.items())
 
-    def append(self, string):
+    def append(self, content):
         '''Append to content.'''
-        self.content += (
-            u"{indent}{str}\n".format(indent=self.indent, str=str(string))
-        )
+        self.contents.append(content)
 
     def render(self, file_out, ind=""):
         '''Render the tag and strings'''
-        output = (
-            u"{indent}<{tag}>\n"
-            "{indent}{content}"
-            "{indent}</{tag}>"
-            .format(indent=ind, tag=self.tag, content=self.content)
-        )
-        file_out.write(output)
+        file_out.write("{}<{}{}>\n \n".format(ind, self.tag, self.attributes))
+
+        for text in self.contents:
+            try:
+                text.render(file_out, ind + self.indent)
+            except AttributeError:
+                file_out.write('{}{}\n'.format(ind + self.indent, text))
+
+        file_out.write("{}</{}>\n".format(ind, self.tag))
     # Now we can add our additional classes
 
 
@@ -97,6 +102,7 @@ class A(OneLineTag):
         '''You should be able to subclass from Element, and
         only override the __init__ Calling the Element __init__
         from the A __init__ OneLineTag.'''
+        OneLineTag.__init__(self, text, a=html_address)
 
 
 class Ul(Element):

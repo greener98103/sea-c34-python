@@ -10,7 +10,7 @@ class Element(object):
     (html first) and the indentation (spaces to indent for pretty
     printing)'''
     tag = u"html"
-    indent = u"    "
+    indent = u"   "
 
     def __init__(self, content=None, **kwargs):
         if content is None:
@@ -102,7 +102,7 @@ class A(OneLineTag):
         '''You should be able to subclass from Element, and
         only override the __init__ Calling the Element __init__
         from the A __init__ OneLineTag.'''
-        OneLineTag.__init__(self, text, a=html_address)
+        OneLineTag.__init__(self, text, href=html_address)
 
 
 class Ul(Element):
